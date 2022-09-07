@@ -3,8 +3,7 @@ from mysql.connector import errorcode #habilitar mensagem de erro
 
 class conexao:
     def _init_(self):
-        self.db_connection = ""
-        self.con = self.db_connection.curso()
+        pass
         
     
     def conectar(self):
