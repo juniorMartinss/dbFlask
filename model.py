@@ -9,7 +9,7 @@ class model:
             
     def inserir(self, nome, telefone, endereco, dataDenascimento):
         try:
-            sql = "Insert into person(codigo, nome, telefone, endereco, dataDenascimento) values('', '{}', '{}', '{}', '{}')".format(nome, telefone, endereco, self.tratarData(dataDenascimento))
+            sql = "Insert into person(codigo, nome, telefone, endereco, dataDeNascimento) values('', '{}', '{}', '{}', '{}')".format(nome, telefone, endereco, dataDenascimento)
             self.con.execute(sql)
             self.db_connection.commit()
             return "{} Inserido!".format(self.con.rowcount)
@@ -19,7 +19,7 @@ class model:
     def consultar(self, codigo):
         try:
             sql = "select * from person where codigo = '{}'".format(codigo)
-            self.con.conex.execute(sql)
+            self.con.execute(sql)
             msg = ""
             
             for(codigo, nome, telefone, endreco, dataDeNascimento) in self.con:
@@ -40,7 +40,7 @@ class model:
     def excluir(self, cod):
         try:
             sql = "delete from person where codigo = '{}'".format(cod)
-            self.con.execute(cod)
+            self.con.execute(sql)
             self.db_connection.commit()
             return "{} linha excluida!".format(cod)
         except Exception as erro:
